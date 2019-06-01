@@ -9,9 +9,9 @@ private:
   int N;
 public:
   Runtime(int);
-  fibonacciRec();
-  fibonacciIter();
-  calcRuntime();
+  int fibonacciRec(int);
+  int fibonacciIter();
+  void calcRuntime();
 };
 
 #endif
