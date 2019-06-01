@@ -1,5 +1,6 @@
 #include "Runtime.hpp"
 #include <climits>
+#include <sstream>
 using std::cout;
 using std::cin;
 using std::endl;
@@ -12,7 +13,7 @@ int inputValidation(int min, int max)
   string inputLine;
   while (repeatEntry) {
       getline(cin, inputLine);
-      stringstream lineStream(inputLine);
+      std::stringstream lineStream(inputLine);
       if (!(lineStream >> input)) {
           cout << "Input was not a number. Please try again." << endl;
       } else if ((input < min) || (input > max)) {
