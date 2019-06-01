@@ -1,5 +1,5 @@
 /*********************************************************************
-** Program name: Lab 10 - Doubly Linked List
+** Program name: Lab 10 - Algorithm Complexity of Fibonacci Sequences
 ** Author: Sariah Bunnell 
 ** Date:  June 1 2019
 ** Description: main function - program beginning and end 
