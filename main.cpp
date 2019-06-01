@@ -1,3 +1,9 @@
+/*********************************************************************
+** Program name: Lab 10 - Doubly Linked List
+** Author: Sariah Bunnell 
+** Date:  June 1 2019
+** Description: main function - program beginning and end 
+*********************************************************************/
 #include "Runtime.hpp"
 #include <climits>
 #include <sstream>
@@ -5,6 +11,12 @@ using std::cout;
 using std::cin;
 using std::endl;
 
+/*********************************************************************
+** Function: inputValidation
+** Description: validates user input 
+** Parameters: int minimum int maximum
+** Returns: validated integer
+*********************************************************************/
 int inputValidation(int min, int max)
 {
   double input;
@@ -28,7 +40,13 @@ int inputValidation(int min, int max)
   }
   return input;  
 }
-
+/*********************************************************************
+** Function: main
+** Description: asks for user-given value and runs that number 
+** through Runtime methods
+** Parameters: None
+** Returns: int 0 when finished
+*********************************************************************/
 int main()
 {
   int value;
