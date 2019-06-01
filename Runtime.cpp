@@ -1,9 +1,27 @@
+/*********************************************************************
+** Program name: Lab 10 - Algorithm Complexity of Fibonacci Sequences
+** Author: Sariah Bunnell 
+** Date:  June 1 2019
+** Description: Runtime base class implementation file 
+*********************************************************************/
 #include "Runtime.hpp"
-
+/*********************************************************************
+** Function: Runtime constructor
+** Description: initializes N to argument value
+** Parameters: int num
+** Returns: None
+*********************************************************************/
 Runtime::Runtime(int num)
 {
   N = num;
 }
+/*********************************************************************
+** Function: fibonacciRec
+** Description: calculated Fibonacci sequence for given n by use of
+** recursion
+** Parameters: int n
+** Returns: int Fibonacci number
+*********************************************************************/
 int Runtime::fibonacciRec(int n)
 {
   if(n == 0)
@@ -16,6 +34,13 @@ int Runtime::fibonacciRec(int n)
   }
   return Fibonacci(n - 1) + Fibonacci(n - 2);
 }
+/*********************************************************************
+** Function: fibonacciIter
+** Description: calculated Fibonacci sequence for N by use of 
+** iteration
+** Parameters: None
+** Returns: int Fibonacci number
+*********************************************************************/
 int Runtime::fibonacciIter()
 {
   int first = 0;
@@ -37,6 +62,14 @@ int Runtime::fibonacciIter()
     return first + second;
   }
 }
+/*********************************************************************
+** Function: calcRuntime
+** Description: determines whether high accuracy clock is not 
+** synonomous with wall clock, then performs algorithm run time 
+** analysis by counting microseconds between function performance
+** Parameters: None
+** Returns: None
+*********************************************************************/
 void Runtime::calcRuntime()
 {
   if (high_resolution_clock::is_steady)
