@@ -7,6 +7,8 @@
 #include "Runtime.hpp"
 #include <climits>
 #include <sstream>
+#include <string>
+using std::string;
 using std::cout;
 using std::cin;
 using std::endl;
@@ -22,7 +24,7 @@ int inputValidation(int min, int max)
   double input;
   bool repeatEntry = true;
   char errorTest;
-  string inputLine;
+  std::string inputLine;
   while (repeatEntry) {
       getline(cin, inputLine);
       std::stringstream lineStream(inputLine);

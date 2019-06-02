@@ -1,5 +1,9 @@
+CPPFLAGS=-Wall
+vpath %.cpp src
+vpath %.hpp src
+
 output: main.o Runtime.o 
-	g++ -std=c++0x main.o Runtime.o -o output
+	g++ -std=c++11 main.o Runtime.o -o output
 
 main.o: main.cpp
 	g++ -c main.cpp
