@@ -32,7 +32,7 @@ int Runtime::fibonacciRec(int n)
   {
     return 1;
   }
-  return Fibonacci(n - 1) + Fibonacci(n - 2);
+  return fibonacciRec(n - 1) + fibonacciRec(n - 2);
 }
 /*********************************************************************
 ** Function: fibonacciIter
@@ -72,30 +72,34 @@ int Runtime::fibonacciIter()
 *********************************************************************/
 void Runtime::calcRuntime()
 {
-  if (high_resolution_clock::is_steady)
+  if (std::chrono::high_resolution_clock::is_steady)
   {
-    auto startRec = high_resolution_clock::now();
+    auto startRec = std::chrono::high_resolution_clock::now();
     fibonacciRec(N);
-    auto stopRec = high_resolution_clock::now();
-    auto durationR = durationR_cast<microseconds>(stopRec - startRec);
-    auto startIter = high_resolution_clock::now();
+    auto stopRec = std::chrono::high_resolution_clock::now();
+    auto durationR = std::chrono::duration_cast<std::chrono::microseconds>(stopRec - startRec);
+    auto startIter = std::chrono::high_resolution_clock::now();
     fibonacciIter();
-    auto stopIter = high_resolution_clock::now();
-    auto durationI = durationI_cast<microseconds>(stopIter - startIter);
+    auto stopIter = std::chrono::high_resolution_clock::now();
+    auto durationI = std::chrono::duration_cast<std::chrono::microseconds>(stopIter - startIter);
+    cout << "Fibonacci by recursion: " << endl;
+    cout << durationR.count() << " microseconds." << endl;
+    cout << "Fibonacci by iteration: " << endl;
+    cout << durationI.count() << " microseconds." << endl;
   }
   else
   {
-    auto startRec = steady_clock::now();
+    auto startRec = std::chrono::steady_clock::now();
     fibonacciRec(N);
-    auto stopRec = steady_clock::now();
-    auto durationR = durationR_cast<microseconds>(stopRec - startRec);
-    auto startIter = steady_clock::now();
+    auto stopRec = std::chrono::steady_clock::now();
+    auto durationR = std::chrono::duration_cast<std::chrono::microseconds>(stopRec - startRec);
+    auto startIter = std::chrono::steady_clock::now();
     fibonacciIter();
-    auto stopIter = steady_clock::now();
-    auto durationI = durationI_cast<microseconds>(stopIter - startIter);
+    auto stopIter = std::chrono::steady_clock::now();
+    auto durationI = std::chrono::duration_cast<std::chrono::microseconds>(stopIter - startIter);
+    cout << "Fibonacci by recursion: " << endl;
+    cout << durationR.count() << " microseconds." << endl;
+    cout << "Fibonacci by iteration: " << endl;
+    cout << durationI.count() << " microseconds." << endl;
   } 
-  cout << "Fibonacci by recursion: " << endl;
-  cout << durationR.count() << " microseconds." << endl;
-  cout << "Fibonacci by iteration: " << endl;
-  cout << durationI.count() << " microseconds." << endl;
 }
